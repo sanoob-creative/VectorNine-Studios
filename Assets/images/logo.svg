@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 963.39 315.74">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        fill: #a3d9c9;
+      }
+
+      .cls-1, .cls-3, .cls-4 {
+        font-family: BaseNeueTrial-CondensedMedium, 'Base Neue Trial';
+        font-weight: 500;
+      }
+
+      .cls-5 {
+        fill: #fff;
+        font-family: BaseNeueTrial-LightOblique, 'Base Neue Trial';
+        font-size: 81.62px;
+        font-style: oblique;
+        font-weight: 300;
+      }
+
+      .cls-3, .cls-6 {
+        letter-spacing: 0em;
+      }
+
+      .cls-7 {
+        font-size: 181.5px;
+      }
+
+      .cls-6 {
+        fill: #f2f2f2;
+        font-family: BaseNeueTrial-Condensed, 'Base Neue Trial';
+      }
+
+      .cls-4 {
+        letter-spacing: -.02em;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <g>
+        <rect class="cls-2" x="202.7" y="89.41" width="36.01" height="119.3" rx="9.29" ry="9.29"/>
+        <path class="cls-2" d="M3.75,111.83l157.94,97.24c5.25,3.23,12-.54,12-6.7V7.89c0-6.16-6.76-9.93-12-6.7L3.75,98.42c-4.99,3.07-4.99,10.33,0,13.41Z"/>
+        <path class="cls-2" d="M101.87,212.52l-4,98.58c-.14,3.44,3.51,5.74,6.55,4.12l88.01-46.85c3.04-1.62,3.18-5.93.24-7.73l-84.01-51.73c-2.9-1.79-6.66.21-6.79,3.62Z"/>
+      </g>
+      <g>
+        <text class="cls-5" transform="translate(684.59 276.13)"><tspan x="0" y="0">Studios</tspan></text>
+        <text class="cls-7" transform="translate(281.42 189.52)"><tspan class="cls-3" x="0" y="0">VE</tspan><tspan class="cls-4" x="138.57" y="0">C</tspan><tspan class="cls-1" x="212.53" y="0">T</tspan><tspan class="cls-3" x="279.23" y="0">OR</tspan><tspan class="cls-6" x="430.87" y="0">NINE</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>
