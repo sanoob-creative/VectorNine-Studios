@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vectornine Studios - From Bold Concepts to Polished Creations</title>
+    <meta name="description" content="Vectornine is a collective of visionary designers, creative strategists, and meticulous developers dedicated to bringing your ideas to life.">
+    <meta name="author" content="Vectornine Studios">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #181818;
+            --text-white: #ffffff;
+            --accent-teal: #a3d9c9;
+            --accent-orange: #E08119;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(24, 24, 24, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-white);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-teal);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 2rem;
+        }
+
+        .hero-animation {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 3rem;
+            position: relative;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .logo-v {
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--accent-teal);
+            border-right: none;
+            border-top: none;
+            position: relative;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 20px rgba(163, 217, 201, 0.3); }
+            100% { box-shadow: 0 0 40px rgba(163, 217, 201, 0.8); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            max-width: 600px;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 1s forwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeInUp 1s ease 1.5s forwards;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: 2px solid var(--accent-teal);
+            background: transparent;
+            color: var(--text-white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: var(--accent-teal);
+            color: var(--bg-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border-color: var(--accent-orange);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-orange);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: bold;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .section-title.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .grid.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 4rem;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-highlight {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: bold;
+            color: var(--accent-teal);
+            line-height: 1.4;
+        }
+
+        /* Services Section */
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent-teal);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--accent-teal);
+            margin-bottom: 1rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+        }
+
+        .service-card li {
+            padding: 0.3rem 0;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .service-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-teal);
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 4/3;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(163, 217, 201, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.5rem;
+            color: var(--bg-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-overlay p {
+            color: var(--bg-dark);
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        /* Studio Space Section */
+        .studio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .studio-item {
+            aspect-ratio: 16/10;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .studio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .studio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .studio-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .studio-cta .btn {
+            margin: 0 1rem;
+        }
+
+        /* Clients Section */
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .client-logo {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .client-logo:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Testimonials Section */
+        .testimonial {
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .testimonial blockquote {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .testimonial blockquote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent-teal);
+            position: absolute;
+            top: -1rem;
+            left: -1rem;
+        }
+
+        .testimonial cite {
+            color: var(--accent-teal);
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--accent-teal);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            color: var(--text-white);
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-teal);
+            box-shadow: 0 0 0 2px rgba(163, 217, 201, 0.2);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info h3 {
+            color: var(--accent-teal);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info a {
+            color: var(--text-white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-teal);
+        }
+
+        .social-links {
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 1rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent-teal);
+            color: var(--bg-dark);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-white);
+            margin: 2px 0;
+            transition: var(--transition);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            section {
+                padding: 4rem 1rem;
+            }
+
+            header {
+                padding: 1rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in-up.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#home" class="logo">Vectornine</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#studio">Studio Space</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#clients">Clients</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-animation">
+            <div class="logo-v"></div>
+        </div>
+        <h1>From Bold Concepts to Polished Creations</h1>
+        <p>Vectornine is a collective of visionary designers, creative strategists, and meticulous developers dedicated to bringing your ideas to life.</p>
+        <div class="hero-buttons">
+            <a href="#services" class="btn">View Services</a>
+            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title fade-in-up">About Vectornine</h2>
+        <div class="about-content fade-in-up">
+            <p>We are a powerhouse of seasoned veterans & fresh perspectives, united by our shared passion for outcome-driven solutions.</p>
+            <div class="about-highlight">
+                Our philosophy is simple: every pixel matters, every interaction counts, and every solution should push boundaries while solving real problems.
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title fade-in-up">Our Full-Service Suite</h2>
+        <div class="grid grid-3 fade-in-up">
+            <div class="service-card">
+                <h3>Design</h3>
+                <ul>
+                    <li>UI/UX Design</li>
+                    <li>Branding</li>
+                    <li>Motion & Video</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Development</h3>
+                <ul>
+                    <li>Website Development</li>
+                    <li>App Development</li>
+                    <li>API Integration</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Strategy</h3>
+                <ul>
+                    <li>Digital Marketing</li>
+                    <li>Content Strategy</li>
+                    <li>SEO</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Studio Space Section -->
+    <section id="studio">
+        <h2 class="section-title fade-in-up">Rent Our Studio Space</h2>
+        <div class="fade-in-up">
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Our modern, fully-equipped studio space is available for rent. Perfect for photo shoots, video production, client meetings, and creative workshops.
+            </p>
+            <div class="studio-grid">
+                <div class="studio-item">
+                    <img src="../src/assets/studio-1.jpg" alt="Modern creative studio workspace">
+                </div>
+                <div class="studio-item">
+                    <img src="../src/assets/studio-2.jpg" alt="Studio meeting room">
+                </div>
+                <div class="studio-item">
+                    <img src="../src/assets/studio-3.jpg" alt="Studio overview">
+                </div>
+            </div>
+            <div class="studio-cta">
+                <a href="#contact" class="btn">Book a Tour</a>
+                <a href="#contact" class="btn btn-secondary">Contact for Pricing</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2 class="section-title fade-in-up">Selected Work</h2>
+        <div class="gallery-grid fade-in-up">
+            <div class="gallery-item">
+                <img src="../src/assets/project-nova.jpg" alt="Project Nova">
+                <div class="gallery-overlay">
+                    <h4>Project Nova</h4>
+                    <p>Futuristic mobile app design with cutting-edge UI/UX</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="../src/assets/echo-labs.jpg" alt="Echo Labs">
+                <div class="gallery-overlay">
+                    <h4>Echo Labs</h4>
+                    <p>Complete brand identity and logo design for tech startup</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="../src/assets/creative-canvas.jpg" alt="Creative Canvas">
+                <div class="gallery-overlay">
+                    <h4>Creative Canvas</h4>
+                    <p>Digital platform for artists and creative professionals</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="../src/assets/beacon-app.jpg" alt="The Beacon App">
+                <div class="gallery-overlay">
+                    <h4>The Beacon App</h4>
+                    <p>Navigation and location-based mobile application</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="../src/assets/quantum-flow.jpg" alt="Quantum Flow">
+                <div class="gallery-overlay">
+                    <h4>Quantum Flow</h4>
+                    <p>Data visualization dashboard with advanced analytics</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="../src/assets/synergy.jpg" alt="Synergy">
+                <div class="gallery-overlay">
+                    <h4>Synergy</h4>
+                    <p>Collaborative platform for remote team productivity</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients">
+        <h2 class="section-title fade-in-up">Selected Clients</h2>
+        <div class="clients-grid fade-in-up">
+            <div class="client-logo">TechCorp</div>
+            <div class="client-logo">InnovateCo</div>
+            <div class="client-logo">FutureVision</div>
+            <div class="client-logo">DigitalEdge</div>
+            <div class="client-logo">NextGen</div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2 class="section-title fade-in-up">What Our Clients Say</h2>
+        <div class="fade-in-up">
+            <div class="testimonial">
+                <blockquote>The collaboration with Vectornine was fruitful. They followed a rigorous process-driven approach which helped us launch a brand on a tight timeline.</blockquote>
+                <cite>- Jane Doe, Founder</cite>
+            </div>
+            <div class="testimonial">
+                <blockquote>Vectornine took our vision and translated it into a beautiful, functional website that exceeded all expectations.</blockquote>
+                <cite>- John Smith, CEO</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title fade-in-up">Ready to start a project? Let's talk.</h2>
+        <div class="contact-content fade-in-up">
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Your Company</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Your Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="project">Tell us about your project and needs</label>
+                    <textarea id="project" name="project" required></textarea>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="privacy" name="privacy" required>
+                    <label for="privacy">I agree to the privacy policy</label>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+            
+            <div class="contact-info">
+                <h3>Connect</h3>
+                <p><a href="mailto:hello@vectornine.com">hello@vectornine.com</a></p>
+                <p><a href="tel:+919876543210">+91-98765-43210</a></p>
+                
+                <div class="social-links">
+                    <h3>Follow Us</h3>
+                    <a href="#" target="_blank">LinkedIn</a>
+                    <a href="#" target="_blank">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in-up class
+        document.querySelectorAll('.fade-in-up, .section-title, .grid').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you soon.');
+        });
+
+        // Mobile menu toggle (basic implementation)
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', function() {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Add active class to navigation based on scroll position
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
